@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "auth",
   "main": "index.js",
+  "homepage": "https://github.com/YuriyPilipenkoKH/register_form#readme",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,10 +20,10 @@
   "bugs": {
     "url": "https://github.com/YuriyPilipenkoKH/register_form/issues"
   },
-  "homepage": "https://github.com/YuriyPilipenkoKH/register_form#readme",
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.3",
+    "gh-pages": "^5.0.0",
     "style-loader": "^3.3.2",
     "webpack": "^5.81.0",
     "webpack-cli": "^5.0.2",
