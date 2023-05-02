@@ -4,5 +4,7 @@ export const refs = {
     submitBtn: document.querySelector('#submit'),
     list: document.getElementById('list'),
     modalOpenBtn: document.getElementById('modal-open-btn'),
-    authForm: document.getElementById('auth-form')
+    authForm: document.getElementById('auth-form'),
+    // email: document.querySelector('#email').value,
+    // password: document.querySelector('#password').value,
 }
