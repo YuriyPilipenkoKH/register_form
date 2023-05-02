@@ -1,16 +1,20 @@
 import './css/styles.css'
-import { isValid } from './utils/utils'
+import { refs } from './js/refs'
+import { Question } from './js/question'
+import { isValid, createModal } from './utils/utils'
+import { getAuthFormHTML } from './js/auth'
 
-const form = document.getElementById('form')
-const input = document.getElementById('q')
-const submitBtn = document.querySelector('.mui-btn')
 
-form.addEventListener('submit', submitFormHandler)
+const input = refs.input
+
+window.addEventListener('load', Question.renderList)
+refs.form.addEventListener('submit', submitFormHandler)
 input.addEventListener('input', inputHandler)
-// submitBtn.disabled = true
+refs.modalOpenBtn.addEventListener('click', openModal)
+// 
 
 function inputHandler ( ) {
-    submitBtn.disabled = !isValid(input.value)
+    refs.submitBtn.disabled = !isValid(input.value)
 }
 
 function submitFormHandler(e) {
@@ -22,10 +26,26 @@ function submitFormHandler(e) {
         text: input.value.trim(),
         date: new Date().toJSON()
     }
+    refs.submitBtn.disabled = true
 
-    console.log(question);
-    input.value = ''
-    input.className = ''
-    submitBtn.disabled = false
+    Question.create(question)
+    .then( () => {
+        console.log(question);
+     
+        input.value = ''
+        input.className = ''
+        refs.submitBtn.disabled = false
+    })
+
+  
   }
+}
+
+function openModal() {
+    createModal('Authorization', getAuthFormHTML())
+    refs.authForm.addEventListener('submit', authFormHandler, {once: true})
+}
+
+function authFormHandler(e) {
+    e.preventDefault()
 }

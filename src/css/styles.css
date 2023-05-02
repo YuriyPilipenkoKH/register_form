@@ -47,3 +47,30 @@
      margin-left: 180px;
    }
  }
+
+ .floating-btn {
+
+  position: fixed;
+  bottom: 50px;
+  right: -50px;
+ }
+
+ .modal {
+position: relative;
+top: 100px;
+  width: 600px;
+  max-height: 300px;
+  margin: 0 auto ;
+  padding: 1em;
+  overflow-y: auto;
+  background-color: #eee;
+
+ }
+
+ .modal > h1 {
+  text-align: center;
+ }
+
+ .modal .modal-cotent {
+  padding: 1rem;
+ }

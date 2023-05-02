@@ -9,6 +9,8 @@ y<!doctype html>
     <title>Register form</title>
   </head>
   <body>
+   
+
     <div id="sidebar">
       <div class="mui--text-white mui--text-display1 mui--align-vertical">Questions</div>
     </div>
@@ -30,25 +32,30 @@ y<!doctype html>
                 <input type="text" id="q" required  minlength="10" maxlength="226">  
               <label for="q">Your Question </label>
             </div>
-            <button type="submit" class="mui-btn mui-btn--raised mui-btn--primary" >Submit</button>
+            <button 
+            type="submit" 
+            id="submit" 
+            class="mui-btn mui-btn--raised mui-btn--primary"
+            disabled
+            >Submit</button>
           </form>
           
           <br>
-          <!-- <div class="mui--text-black-54 mui--text-body2">Your questions</div>
+          <div class="mui--text-black-54 mui--text-body2">Question List</div>
           <div class="mui-divider"></div>
           <br>
-          <div class="mui--text-headline">MUI Acquires New Features</div>
+          <!-- <div class="mui--text-headline">MUI Acquires New Features</div>
           <div class="mui--text-black-54">By <a href="#">Team MUI</a> 1 week ago</div>
           <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis aliquam ipsum sed dignissim. Sed ac accumsan odio. Vivamus tristique dignissim neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc cursus felis nec purus condimentum vestibulum. Donec mauris nisi, sollicitudin eget iaculis id, suscipit id odio. <a href="#">Read more...</a></div>
           <br> -->
 
           <div id="list"></div>
-          <div class="mui--text-headline">MUI Acquires New Features</div>
-          <div class="mui--text-black-54">By <a href="#">Team MUI</a> 3 weeks ago</div>
-          <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis aliquam ipsum sed dignissim. Sed ac accumsan odio. Vivamus tristique dignissim neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc cursus felis nec purus condimentum vestibulum. Donec mauris nisi, sollicitudin eget iaculis id, suscipit id odio. <a href="#">Read more...</a></div>
-          
+         
+
         </div>
       </div>
     </div>
+
+    <button class="mui-btn mui-btn--fab mui-btn--accent floating-btn" id="modal-open-btn">All</button>
   </body>
 </html>
