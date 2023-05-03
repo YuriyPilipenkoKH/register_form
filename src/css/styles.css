@@ -49,10 +49,15 @@
  }
 
  .floating-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ color: #eee;
+ border: 3px solid #eee;
+ }
 
-  position: fixed;
-  bottom: 50px;
-  left: 50px;
+ #modal-open-btn:hover {
+  color: #888 ;
  }
 
  .modal {

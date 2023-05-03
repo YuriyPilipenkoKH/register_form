@@ -22,6 +22,14 @@ export class  Question {
         .then(Question.renderList)
     }
 
+    static fetch(token) {
+       return fetch('https://regform-a2556-default-rtdb.europe-west1.firebasedatabase.app/questions.json')
+        .then(response => response.json())
+        .then(questions => {
+            console.log(questions);
+        })
+    }
+
     static renderList() {
         const questionList = getQuestionsFromLocalStorage()
 

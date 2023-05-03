@@ -3,6 +3,7 @@ import { refs } from './js/refs'
 import { Question } from './js/question'
 import { isValid, createModal } from './utils/utils'
 import { getAuthFormHTML } from './js/auth'
+import { authWithEmailAndPassword } from './js/auth'
 
 
 const input = refs.input
@@ -48,4 +49,15 @@ function openModal() {
 
 function authFormHandler(e) {
     e.preventDefault()
+
+    const email = e.target.querySelector('#email').value
+    const password = e.target.querySelector('#password').value
+
+    // authWithEmailAndPassword(email, password)
+    // .then(token => {
+    //    return Question.fetch(token)
+    // })
+    authWithEmailAndPassword(email, password)
+    .then(Question.fetch)
+
 }

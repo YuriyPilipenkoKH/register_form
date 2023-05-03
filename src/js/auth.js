@@ -12,7 +12,25 @@ export function getAuthFormHTML () {
             <button 
             type="submit"
              class="mui-btn mui-btn--raised mui-btn--primary"
-             >Login</button>
+             >Enter</button>
           </form>
     `
+}
+
+export function authWithEmailAndPassword(email, password) {
+    const API_KEY ='AIzaSyBalg-wpNYOYl4-yT0vRGNfAYIca29CqRI'
+
+    return fetch( `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`,{
+        method: 'POST',
+        body: JSON.stringify({
+            email: email,
+            password: password,
+            returnSecureToken: true,
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    } )
+    .then(response => response.json())
+    .then(data => data.idToken)
 }
