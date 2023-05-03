@@ -43,7 +43,7 @@ function submitFormHandler(e) {
 
 function openModal() {
     createModal('Authorization', getAuthFormHTML())
-    refs.authForm.addEventListener('submit', authFormHandler, {once: true})
+    document.getElementById('auth-form').addEventListener('submit', authFormHandler, {once: true})
 }
 
 function authFormHandler(e) {
