@@ -23,7 +23,7 @@ export class  Question {
     }
 
     static fetch(token) {
-       return fetch('https://regform-a2556-default-rtdb.europe-west1.firebasedatabase.app/questions.json')
+       return fetch(`https://regform-a2556-default-rtdb.europe-west1.firebasedatabase.app/questions.json?auth=${token}`)
         .then(response => response.json())
         .then(questions => {
             console.log(questions);
