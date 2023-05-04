@@ -14,7 +14,7 @@ export class  Question {
         } )
         .then(response => response.json())
         .then(response => {
-            console.log(response);
+            console.log(response); 
             question.id = response.name
             return question
         })
@@ -23,10 +23,21 @@ export class  Question {
     }
 
     static fetch(token) {
+        if(!token) {
+            return Promise.resolve('<p class ="error">No token</p>')
+        }
        return fetch(`https://regform-a2556-default-rtdb.europe-west1.firebasedatabase.app/questions.json?auth=${token}`)
         .then(response => response.json())
-        .then(questions => {
-            console.log(questions);
+        .then(response => {
+            if(response && response.error){
+                return `<p>${response.error}</p>`
+            }
+            return response 
+            ?  Object.keys(response).map(key => ({
+                ...response[key],
+                id: key,
+                 }))
+            :  []
         })
     }
 
@@ -39,6 +50,14 @@ export class  Question {
 
         refs.list.innerHTML = html
     }
+
+    static listToHTML(questions) {
+        return questions.length
+                ?  `<ol>${questions.map(q => `<li>${q.text}</li>`.join('') )}</ol>`
+                : ` <p>No Questions so far</p>`
+    }
+
+
 }
 
 function addToLocalStorage (question) {

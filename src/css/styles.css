@@ -79,3 +79,7 @@ top: 100px;
  .modal .modal-cotent {
   padding: 1rem;
  }
+
+ .error {
+  color: #f00;
+ }

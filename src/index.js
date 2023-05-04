@@ -50,8 +50,11 @@ function openModal() {
 function authFormHandler(e) {
     e.preventDefault()
 
+    const btn = e.target.querySelector('button')
     const email = e.target.querySelector('#email').value
     const password = e.target.querySelector('#password').value
+
+    btn.disabled = true
 
     // authWithEmailAndPassword(email, password)
     // .then(token => {
@@ -59,5 +62,16 @@ function authFormHandler(e) {
     // })
     authWithEmailAndPassword(email, password)
     .then(Question.fetch)
-
+    .then(renderModalAfterAuth)
+    .then(() => btn.disabled = false)
 }
+ 
+function renderModalAfterAuth(content) {
+    if(typeof content === 'string') {
+        createModal('Error', content)
+    }
+    else {
+        createModal('Question List',  Question.listToHTML(content))
+    }
+ 
+}   
